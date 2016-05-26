@@ -74,6 +74,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		if (LOWORD(wParam) == IDOK)
 		{
 			EnableWindow(hButton, FALSE);
+			SendMessage(hList, LB_RESETCONTENT, 0, 0);
 			DWORD_PTR dwSize;
 			LPBYTE lpByte = DownloadToMemory(TEXT("https://api.github.com/users/kenjinote/repos"), &dwSize);
 			{
